@@ -18,6 +18,18 @@ public class Board {
         piece.position = position;
     }
 
+    private boolean positionExists(int row, int column) {
+        return row >= 0 && row < rows && column >= 0 && column < columns;
+    }
+
+    public boolean positionExists(Position position) {
+        return positionExists(position.getRow(), position.getColumn());
+    }
+
+    public boolean thereIsAPiece(Position position) {
+        return piece(position) != null;
+    }
+
     public Board(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
