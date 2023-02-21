@@ -6,10 +6,16 @@ public class Board {
     private Piece[][] pieces;
 
     public Piece piece(int row, int column) {
+        if (!positionExists(row, column)) {
+            throw new BoardException("Error: position not on the board");
+        }
         return pieces[row][column];
     }
 
     public Piece piece(Position position) {
+        if (!positionExists(position)) {
+            throw new BoardException("Error: position not on the board");
+        }
         return pieces[position.getRow()][position.getColumn()];
     }
 
@@ -30,7 +36,7 @@ public class Board {
         return piece(position) != null;
     }
 
-    public Board(int rows, int columns) throws BoardException {
+    public Board(int rows, int columns) {
         if (rows < 1 || columns < 1) {
             throw new BoardException("Error creating board: there must be at least 1 row and column");
         }
