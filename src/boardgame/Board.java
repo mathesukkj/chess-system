@@ -30,7 +30,10 @@ public class Board {
         return piece(position) != null;
     }
 
-    public Board(int rows, int columns) {
+    public Board(int rows, int columns) throws BoardException {
+        if (rows < 1 || columns < 1) {
+            throw new BoardException("Error creating board: there must be at least 1 row and column");
+        }
         this.rows = rows;
         this.columns = columns;
         pieces = new Piece[rows][columns];
