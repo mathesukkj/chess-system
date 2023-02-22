@@ -13,7 +13,6 @@ public class App {
 
         while (true) {
             try {
-
                 UI.clearScreen();
                 UI.printBoard(chessMatch.getPieces());
                 System.out.print("\nSource: ");
