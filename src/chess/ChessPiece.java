@@ -6,6 +6,7 @@ import boardgame.Position;
 
 public abstract class ChessPiece extends Piece {
     private ColorEnum color;
+    private int moveCount;
 
     protected boolean isThereOpponentPiece(Position position) {
         ChessPiece p = (ChessPiece) getBoard().piece(position);
@@ -19,6 +20,18 @@ public abstract class ChessPiece extends Piece {
 
     public ColorEnum getColor() {
         return color;
+    }
+
+    public void increaseMoveCount() {
+        moveCount++;
+    }
+
+    public void decreaseMoveCount() {
+        moveCount--;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
     }
 
     public ChessPosition getChessPosition() {
