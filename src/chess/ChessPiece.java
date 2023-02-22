@@ -20,4 +20,8 @@ public abstract class ChessPiece extends Piece {
     public ColorEnum getColor() {
         return color;
     }
+
+    public ChessPosition getChessPosition() {
+        return ChessPosition.fromPosition(position);
+    }
 }
